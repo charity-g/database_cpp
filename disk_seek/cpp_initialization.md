@@ -68,5 +68,21 @@ int x {};      // value initialization
 std::cin >> x; // we're immediately replacing that value so an explicit 0 would be meaningless
 ```
 
+## Multi-variable initialization 
+```cpp
+int a, b = 5;     // wrong: a is not initialized to 5! This is because a doesn't have its own initializer
+int a = 5, b = 5; // correct: a and b are initialized to 5
+```
+
+## preventing errors
+```cpp
+    [[maybe_unused]] double pi { 3.14159 };  // Don't complain if pi is unused
+```
+
+## Instantiation
+- means variable has been created (allocated) and initialized (incl default initialization)
+- usually occurs to class obj but can be any 
+
 # TAKEAWAYS:
+**Intialization**
 - use list and value initializations
