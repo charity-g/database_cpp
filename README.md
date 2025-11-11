@@ -1,10 +1,30 @@
 # Goals
 
+## disk seek project
+**Project:**
+
 I want to write a disk management system that can simulate accessing a file on disk as well as seek time, transfer time and rotation time
 - a user should be able to set up the disk with platters, cylinder counts and double sided-ness
 - a user should be able to request a list of pages
 - a user should be able to change the algorithm for seek from Elevator, FCFS: first come first servers   SSTF: shortest seek time first and C-SCAN:
 - a user should be able to benchmark the time it takes for an execution
+
+**Extra learning:**
+- compiler, linker and libraries
+
+## Buffer Pool Cache
+- Google C++ style guides
+
+
+## Creating tables on simulated "disk" with "file" constraints
+- set up tables
+
+  - with ability to create records in a table
+  - column data types char, int(4), int(8) etc
+  - PK
+
+##
+
 
 # more ideas :)
 
