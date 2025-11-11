@@ -38,5 +38,19 @@ gdb --version
 
 ## Process of Compilation of program
 
+> `g++ hello.cpp` 
+- produces `a.out` executable file (macOS/Linux stop here)
+- MinGW or MSYS2 versions of g++ (and most Windows builds of GCC) automatically add the .exe extension to executables, so you have `a.exe` file
 
+> `g++ -S hello.cpp`
+- `-S` produces only the compiled file_name and not assembling or linking. It will generate a `file_name.s` file in assembly
 
+> `g++ -c hello.cpp`
+- `-c` flag only compile and assemble the file_name 
+- does not link the object code to produce executable file. It will generate a machine code file `file_name.o`
+
+> `g++ -o target_name file_name file_name2`
+- Compiles and links multiple files and generates executable target file with target_name (or a.out by default).
+
+> `g++ -Wall file_name`
+- prints all warning messages that are generated during compilation of file_name
