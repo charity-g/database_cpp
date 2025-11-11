@@ -9,10 +9,12 @@ I want to write a disk management system that can simulate accessing a file on d
 - a user should be able to change the algorithm for seek from Elevator, FCFS: first come first servers   SSTF: shortest seek time first and C-SCAN:
 - a user should be able to benchmark the time it takes for an execution
 
-**Extra learning:**
+**C++ learning:**
 - compiler, linker and libraries
 
 ## Buffer Pool Cache
+
+**C++ learning:**
 - Google C++ style guides
 
 
@@ -23,7 +25,14 @@ I want to write a disk management system that can simulate accessing a file on d
   - column data types char, int(4), int(8) etc
   - PK
 
-##
+
+**C++ learning:**
+- Pointers, dynamic memory and cleanup
+
+## Indexes
+### B+ Tree Index
+### Extendible Hashing
+### Linear Hashing
 
 
 # more ideas :)
