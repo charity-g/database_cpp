@@ -4,7 +4,8 @@
 #define STARTING_CYLINDER 0 //[[maybe unused]]
 #define TOTAL_PLATTERS 10 //[[maybe unused]]
 #define IS_DOUBLE_SIDED true //[[maybe unused]]
-
+#define RPM 7200 //[[maybe unused]]
+#define BYTES_PER_TRACK 49152 //[[maybe unused]]
 
 int * ParseDiskSeekRequests(int argc, char **argv) {
     int * requests = new int[argc - 1];
@@ -33,7 +34,8 @@ float CalculateSeekTime(int from_cylinder, int to_cylinder) {
 }
 
 float CalculateRotationalLatency() {
-    // Placeholder for rotational latency calculation logic
+    // Returns average rotational latency in ms
+    return RPM * 60 * 0.5
 }
 
 float CalculateTransferTime() {
