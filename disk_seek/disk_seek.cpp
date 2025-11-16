@@ -33,13 +33,15 @@ float CalculateSeekTime(int from_cylinder, int to_cylinder) {
     // Placeholder for seek time calculation logic
 }
 
+
+// Returns average rotational latency in ms
 float CalculateRotationalLatency() {
-    // Returns average rotational latency in ms
-    return RPM * 60 * 0.5
+    return RPM / 60000.0f * 0.5f;
 }
 
+// Returns transfer time for one page in ms
 float CalculateTransferTime() {
-    // Placeholder for transfer time calculation logic
+    return (RPM / 60000.0f) *  4096.0f / static_cast<float>(BYTES_PER_TRACK) ;
 }
 
 void SimulateDiskSeek(int * requests, int total_requests) {
