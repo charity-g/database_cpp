@@ -5,7 +5,7 @@
 #define IS_DOUBLE_SIDED true //[[maybe unused]]
 
 
-int * parse_disk_seek_requests(int argc, char **argv) {
+int * ParseDiskSeekRequests(int argc, char **argv) {
     int * requests = new int[argc - 1];
     for (int i = 1; i < argc; ++i) {
         int request {};
@@ -27,18 +27,22 @@ int * parse_disk_seek_requests(int argc, char **argv) {
 
 }
 
+void SimulateDiskSeek(int * requests, int total_requests) {
+    // Simulation logic would go here
+    for (int i = 0; i < total_requests; ++i) {
+        std::cout << "Seeking to cylinder: " << requests[i] << "\n";
+    }
+}
+
 int main(int argc, char **argv)
 {
-    int * requests { parse_disk_seek_requests(argc, argv) };
+    int * requests { ParseDiskSeekRequests(argc, argv) };
     if (!requests)
     {
         std::cerr << "Invalid disk seek inputs provided. Must be list of number within " << TOTAL_CYLINDERS << " \n";
         return 1;
     }
-    std::cout << argc - 1 << " disk seek requests provided.\n";
-    for (int i = 1; i < argc; ++i)
-    {
-        std::cout << "Argument " << i << ": " << requests[i] << "\n";
-    }
+    SimulateDiskSeek(requests, argc - 1);
+    delete[] requests;
     return 0;
 }

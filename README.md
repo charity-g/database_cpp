@@ -15,7 +15,7 @@ I want to write a disk management system that can simulate accessing a file on d
 ## Buffer Pool Cache
 
 **C++ learning:**
-- Google C++ style guides
+- Google C++ style guides https://google.github.io/styleguide/cppguide.html
 
 
 ## Creating tables on simulated "disk" with "file" constraints
