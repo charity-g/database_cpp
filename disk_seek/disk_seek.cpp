@@ -35,10 +35,10 @@ int main(int argc, char **argv)
         std::cerr << "Invalid disk seek inputs provided. Must be list of number within " << TOTAL_CYLINDERS << " \n";
         return 1;
     }
-    std::cout << argc << " arguments provided.\n";
-    for (int i = 0; i < argc; ++i)
+    std::cout << argc - 1 << " disk seek requests provided.\n";
+    for (int i = 1; i < argc; ++i)
     {
-        std::cout << "Argument " << i << ": " << argv[i] << "\n";
+        std::cout << "Argument " << i << ": " << requests[i] << "\n";
     }
     return 0;
 }
