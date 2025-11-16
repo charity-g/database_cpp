@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cmath>
 #define TOTAL_CYLINDERS 5000
 #define STARTING_CYLINDER 0 //[[maybe unused]]
 #define TOTAL_PLATTERS 10 //[[maybe unused]]
@@ -29,8 +30,13 @@ int * ParseDiskSeekRequests(int argc, char **argv) {
 
 }
 
+// Returns seek time in ms
 float CalculateSeekTime(int from_cylinder, int to_cylinder) {
     // Placeholder for seek time calculation logic
+    float setup_time = 3.0f; // ms
+    float time_per_cylinder = 0.1f; // ms per cylinder
+    int cylinder_distance = std::abs(to_cylinder - from_cylinder);
+    return setup_time + (time_per_cylinder * cylinder_distance);
 }
 
 
@@ -41,17 +47,23 @@ float CalculateRotationalLatency() {
 
 // Returns transfer time for one page in ms
 float CalculateTransferTime() {
-    return (RPM / 60000.0f) *  4096.0f / static_cast<float>(BYTES_PER_TRACK) ;
+    return (RPM / 60000.0f) *  4096.0f / static_cast<float>(BYTES_PER_TRACK);
 }
 
 void SimulateDiskSeek(int * requests, int total_requests) {
     int curr_cylinder = STARTING_CYLINDER;
-    
+    float grand_total_time = 0.0f;
     for (int i = 0; i < total_requests; ++i) {
-        // we are at starting cylinder
-        std::cout << "Seeking to cylinder: " << requests[i] << "\n";
+        float seek_time = CalculateSeekTime(curr_cylinder, requests[i]);
+        float rotational_latency = CalculateRotationalLatency();
+        float transfer_time = CalculateTransferTime();
+        float total_time = seek_time + rotational_latency + transfer_time;
+        std::cout << "Retrieving page on cylinder: " << requests[i] << "\n";
+        std::cout << "Total time for operation: " << total_time << " ms\n";
+        grand_total_time += total_time;
         curr_cylinder = requests[i];
     }
+    std::cout << "Grand total time for all operations: " << grand_total_time << " ms\n";
 }
 
 int main(int argc, char **argv)
