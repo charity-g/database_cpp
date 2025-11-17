@@ -12,6 +12,7 @@ struct DiskSpec {
     int pages_per_cylinder;
 };
 
+//TODO: read the forloops properly
 // Lookup DASD model (case-insensitive). Returns true if found and fills spec.
 bool GetDiskSpec(const std::string& raw_model, DiskSpec& spec) {
     // normalize to lowercase and trim spaces

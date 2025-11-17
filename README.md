@@ -16,7 +16,7 @@ I want to write a disk management system that can simulate accessing a file on d
 
 **C++ learning:**
 - Google C++ style guides https://google.github.io/styleguide/cppguide.html
-
+- cmake
 
 ## Creating tables on simulated "disk" with "file" constraints
 - set up tables
